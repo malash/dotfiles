@@ -44,10 +44,10 @@ defaults write com.apple.systemuiserver menuExtras -array \
 #defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
 
 # Set sidebar icon size to medium
-defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
+#defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
 # Always show scrollbars
-defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+#defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 
 # Disable smooth scrolling
@@ -100,7 +100,7 @@ defaults write com.apple.helpviewer DevMode -bool true
 
 # Reveal IP address, hostname, OS version, etc. when clicking the clock
 # in the login window
-sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+#sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
@@ -112,7 +112,7 @@ sudo systemsetup -setcomputersleep Off > /dev/null
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 # Disable Notification Center and remove the menu bar icon
-launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+#launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
 # Disable smart quotes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
