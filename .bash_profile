@@ -56,3 +56,8 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # git completion
 [ -r "$HOME/.git-completion.bash" ] && source ~/.git-completion.bash;
+
+# thefuck
+if thefuck -v > /dev/null 2>&1; then
+    eval "$(thefuck --alias)";
+fi;
