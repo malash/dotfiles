@@ -20,3 +20,5 @@ else
 	fi;
 fi;
 unset doIt;
+
+cp fonts/SourceCodePro-Medium.otf $HOME/Library/Fonts/
