@@ -8,6 +8,13 @@ function doIt() {
 	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
 		--exclude "README.md" --exclude "LICENSE-MIT.txt" --exclude "fonts/" \
         --exclude ".osx" --exclude "brew.sh" --exclude "init" -avh --no-perms . ~;
+    if [ `uname` == "Darwin" ]; then
+        cp fonts/SourceCodePro-Medium.otf $HOME/Library/Fonts/;
+    elif [ `uname` == "Linux" ]; then
+        if apt-get -v > /dev/null 2>&1; then
+            apt-get install -y vim
+        fi;
+    fi;
 	source ~/.bash_profile;
 }
 
@@ -21,5 +28,3 @@ else
 	fi;
 fi;
 unset doIt;
-
-cp fonts/SourceCodePro-Medium.otf $HOME/Library/Fonts/
