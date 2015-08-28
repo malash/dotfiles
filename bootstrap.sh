@@ -12,7 +12,7 @@ function doIt() {
         cp fonts/SourceCodePro-Medium.otf $HOME/Library/Fonts/;
     elif [ `uname` == "Linux" ]; then
         if apt-get -v > /dev/null 2>&1; then
-            apt-get install -y vim
+            apt-get install -y vim bash-completion
         fi;
     fi;
 	source ~/.bash_profile;
