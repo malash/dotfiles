@@ -10,6 +10,15 @@ function doIt() {
         --exclude ".osx" --exclude "brew.sh" --exclude "init" -avh --no-perms . ~;
     if [ `uname` == "Darwin" ]; then
         cp fonts/SourceCodePro-Medium.otf $HOME/Library/Fonts/;
+        if [ "$1" == "--force" -o "$1" == "-f" ]; then
+            source ./brew.sh;
+        else
+            read -p "Install brew & brew packages? (y/n) " -n 1;
+            echo "";
+            if [[ $REPLY =~ ^[Yy]$ ]]; then
+                source ./brew.sh;
+            fi;
+        fi;
     elif [ `uname` == "Linux" ]; then
         if apt-get -v > /dev/null 2>&1; then
             sudo apt-get update

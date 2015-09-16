@@ -1,5 +1,8 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
+if [ `uname` == "Darwin" ] && [ -d $(brew --prefix coreutils)/libexec/gnubin ]; then
+    export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH";
+fi;
 
 # history related tuning
 export HISTTIMEFORMAT="%F %T "
