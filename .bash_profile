@@ -1,7 +1,10 @@
+BREW_PREFIX=/usr/local
+BREW_PREFIX_COREUTILS=/usr/local/opt/coreutils
+
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
-if [ `uname` == "Darwin" ] && [ -d $(brew --prefix coreutils)/libexec/gnubin ]; then
-    export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH";
+if [ `uname` == "Darwin" ] && [ -d $BREW_PREFIX_COREUTILS/libexec/gnubin ]; then
+    export PATH="$BREW_PREFIX_COREUTILS/libexec/gnubin:$PATH";
 fi;
 
 # history related tuning
@@ -33,8 +36,8 @@ for option in autocd globstar; do
 done;
 
 # Add tab completion for many Bash commands
-if which brew > /dev/null 2>&1 && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
-    source "$(brew --prefix)/etc/bash_completion"
+if which brew > /dev/null 2>&1 && [ -f "$BREW_PREFIX/etc/bash_completion" ]; then
+    source "$BREW_PREFIX/etc/bash_completion"
 elif [ -f /etc/bash_completion ]; then
 	source /etc/bash_completion;
 fi;
@@ -64,3 +67,6 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 if thefuck -v > /dev/null 2>&1; then
     eval "$(thefuck --alias)";
 fi;
+
+unset BREW_PREFIX
+unset BREW_PREFIX_COREUTILS
