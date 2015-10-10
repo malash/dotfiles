@@ -41,7 +41,7 @@ brew install bash-completion2
 brew install wget --with-iri
 
 # Install proxychains4
-brew install proxychains4
+brew install proxychains-ng
 
 # Install RingoJS and Narwhal.
 # Note that the order in which these are installed is important;
