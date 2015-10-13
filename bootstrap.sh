@@ -22,7 +22,7 @@ function doIt() {
     elif [ `uname` == "Linux" ]; then
         if apt-get -v > /dev/null 2>&1; then
             sudo apt-get update
-            sudo apt-get install -y vim bash-completion
+            sudo apt-get install -y vim bash-completion mosh
         fi;
     fi;
 	source ~/.bash_profile;
