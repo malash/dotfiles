@@ -9,7 +9,7 @@ function doIt() {
 		--exclude "README.md" --exclude "LICENSE-MIT.txt" --exclude "fonts/" \
         --exclude ".osx" --exclude "brew.sh" --exclude "init" -avh --no-perms . ~;
     if [ `uname` == "Darwin" ]; then
-        cp fonts/SourceCodePro-Medium.otf $HOME/Library/Fonts/;
+        cp fonts/* $HOME/Library/Fonts/;
         if [ "$1" == "--force" -o "$1" == "-f" ]; then
             source ./brew.sh;
         else
