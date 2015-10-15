@@ -10,6 +10,7 @@ function doIt() {
         --exclude ".osx" --exclude "brew.sh" --exclude "init" -avh --no-perms . ~;
     if [ `uname` == "Darwin" ]; then
         cp fonts/* $HOME/Library/Fonts/;
+		git config --global credential.helper osxkeychain
         if [ "$1" == "--force" -o "$1" == "-f" ]; then
             source ./brew.sh;
         else

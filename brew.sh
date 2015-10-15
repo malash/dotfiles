@@ -68,7 +68,6 @@ brew install dark-mode
 #brew install exiv2
 brew install git
 brew link git
-git config --global credential.helper osxkeychain
 brew install git-lfs
 brew install imagemagick --with-webp
 brew install lua
