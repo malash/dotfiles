@@ -6,7 +6,7 @@
 	url = https://github.com/Lokaltog/vim-easymotion.git
 [submodule ".vim/bundle/command-t"]
 	path = .vim/bundle/command-t
-	url = git://git.wincent.com/command-t.git
+	url = https://github.com/wincent/command-t.git
 [submodule ".vim/bundle/sparkup"]
 	path = .vim/bundle/sparkup
 	url = https://github.com/rstacruz/sparkup.git

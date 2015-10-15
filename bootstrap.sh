@@ -3,6 +3,8 @@
 cd "$(dirname "${BASH_SOURCE}")";
 
 git pull origin master;
+git submodule init
+git submodule update
 
 function doIt() {
 	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
