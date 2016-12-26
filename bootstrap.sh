@@ -23,9 +23,14 @@ function doIt() {
             fi;
         fi;
     elif [ `uname` == "Linux" ]; then
+        if type sudo >/dev/null> 2&1; then
+            SUDO='sudo'
+        else
+            SUDO=''
+        fi
         if apt-get -v > /dev/null 2>&1; then
-            sudo apt-get update;
-            sudo apt-get install -y vim bash-completion mosh tree proxychains;
+            $SUDO apt-get update;
+            $SUDO apt-get install -y vim bash-completion mosh tree proxychains;
         fi;
     fi;
 	source ~/.bash_profile;
