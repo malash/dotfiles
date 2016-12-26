@@ -25,7 +25,7 @@ function doIt() {
     elif [ `uname` == "Linux" ]; then
         if apt-get -v > /dev/null 2>&1; then
             sudo apt-get update;
-            sudo apt-get install -y vim bash-completion mosh tree;
+            sudo apt-get install -y vim bash-completion mosh tree proxychains;
         fi;
     fi;
 	source ~/.bash_profile;
