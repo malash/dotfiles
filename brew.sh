@@ -34,6 +34,10 @@ brew install gnu-sed --with-default-names
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
 # running `chsh`.
 brew install bash
+if [ -z `grep "/usr/local/bin/bash"  /etc/shells` ]; then
+  echo "/usr/local/bin/bash" >> /etc/shells
+fi
+sudo chsh -s /usr/local/bin/bash
 brew tap homebrew/versions
 brew install bash-completion2
 
