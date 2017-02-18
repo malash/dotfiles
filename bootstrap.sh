@@ -7,9 +7,17 @@ git submodule init
 git submodule update
 
 function doIt() {
-	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
-		--exclude "README.md" --exclude "LICENSE-MIT.txt" --exclude "fonts/" \
-        --exclude ".osx" --exclude "brew.sh" --exclude "init" --exclude ".gitmodules" -avh --no-perms . ~;
+	rsync --exclude ".git/" \
+    --exclude ".DS_Store" \
+    --exclude "bootstrap.sh" \
+		--exclude "README.md" \
+    --exclude "LICENSE-MIT.txt" \
+    --exclude "fonts/" \
+    --exclude ".osx" \
+    --exclude "brew.sh" \
+    --exclude "init" \
+    --exclude ".gitmodules" \
+    -avh --no-perms . ~;
     if [ `uname` == "Darwin" ]; then
         cp fonts/* $HOME/Library/Fonts/;
 		git config --global credential.helper osxkeychain
