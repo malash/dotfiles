@@ -31,7 +31,7 @@ function doIt() {
             fi;
         fi;
     elif [ `uname` == "Linux" ]; then
-        if type sudo >/dev/null> 2&1; then
+        if type sudo >/dev/null 2>&1; then
             SUDO='sudo'
         else
             SUDO=''
