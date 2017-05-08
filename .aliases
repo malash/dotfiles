@@ -21,11 +21,7 @@ alias m="mate ."
 alias o="open"
 alias oo="open ."
 alias s="screen"
-if [ `uname` == "Darwin" ]; then
-    alias pc="proxychains4 -q"
-elif [ `uname` == "Linux" ]; then
-    alias pc="proxychains"
-fi
+alias pc="proxychains4 -q"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
