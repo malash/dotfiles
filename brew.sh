@@ -72,7 +72,6 @@ brew install dark-mode
 brew install git
 brew link git
 brew install git-lfs
-brew install imagemagick --with-webp
 brew install lua
 brew install lynx
 brew install p7zip
