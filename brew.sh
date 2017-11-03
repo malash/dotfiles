@@ -86,6 +86,7 @@ brew install webkit2png
 brew install zopfli
 brew install nload
 brew install htop
+brew install telnet
 
 # Remove outdated versions from the cellar.
 brew cleanup
