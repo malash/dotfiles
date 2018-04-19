@@ -9,14 +9,16 @@ git submodule update
 function doIt() {
 	rsync --exclude ".git/" \
     --exclude ".DS_Store" \
+    --exclude ".osx" \
     --exclude "bootstrap.sh" \
-		--exclude "README.md" \
+    --exclude "README.md" \
     --exclude "LICENSE-MIT.txt" \
     --exclude "fonts/" \
     --exclude ".osx" \
     --exclude "brew.sh" \
     --exclude "init" \
     --exclude ".gitmodules" \
+    --exclude "LICENSE-MIT.txt" \
     -avh --no-perms . ~;
     if [ `uname` == "Darwin" ]; then
         cp fonts/* $HOME/Library/Fonts/;
