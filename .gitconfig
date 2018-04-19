@@ -1,7 +1,13 @@
 [alias]
+    # View the SHA, description, and history graph of the latest 20 commits
+    log = log --pretty=oneline -n 20 --graph
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+    # various pretty loggers from various places
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    lc = log ORIG_HEAD.. --stat --no-merges
 
 	# View the current working tree status using the short format
 	s = status -s
@@ -24,6 +30,8 @@
 	# Switch to a branch, creating it if necessary
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
+    # View the current working tree status using the short format
+    st = status
 	# Show verbose output about tags, branches or remotes
 	tags = tag -l
 	branches = branch -a
@@ -41,14 +49,25 @@
 	# Interactive rebase with the given number of latest commits
 	reb = "!r() { git rebase -i HEAD~$1; }; r"
 
+    # Commit changes
+    ci = commit
+    cia = !git add -A && git commit -av
 	# Remove the old tag with this name and tag the latest commit with it.
 	retag = "!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r"
 
+    # Switch to a branch, creating it if necessary
+    go = checkout -B
+    co = checkout
 	# Find branches containing commit
 	fb = "!f() { git branch -a --contains $1; }; f"
 
+    # add line number for grep
+    grep = grep -n
 	# Find tags containing commit
 	ft = "!f() { git describe --always --contains $1; }; f"
+
+    # Show verbose output about tags, branches or remotes
+    br = branch
 
 	# Find commits by source code
 	fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
