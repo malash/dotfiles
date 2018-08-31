@@ -106,6 +106,8 @@ brew install zopfli
 brew install nload
 brew install htop
 brew install telnet
+brew install ripgrep
+brew install tig
 
 # Remove outdated versions from the cellar.
 brew cleanup
