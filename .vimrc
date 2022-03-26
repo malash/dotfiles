@@ -1,6 +1,6 @@
 " Use the Solarized Dark theme
 set background=dark
-" Use better color
+" Malash: Use better color
 let g:solarized_termcolors=256
 colorscheme solarized
 let g:solarized_termtrans=1
@@ -52,7 +52,9 @@ set cursorline
 set tabstop=2
 " " Show “invisible” characters
 " set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-" set list
+" Malash: custom chars
+set listchars=tab:,.,trail:.,extends:#,nbsp:.
+set list
 " Highlight searches
 set hlsearch
 " Ignore case of searches
@@ -106,4 +108,3 @@ if has("autocmd")
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
-
