@@ -1,5 +1,7 @@
 " Use the Solarized Dark theme
 set background=dark
+" Use better color
+let g:solarized_termcolors=256
 colorscheme solarized
 let g:solarized_termtrans=1
 
@@ -104,3 +106,4 @@ if has("autocmd")
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
+
