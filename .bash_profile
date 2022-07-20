@@ -67,3 +67,5 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 unset BREW_PREFIX
 unset BREW_PREFIX_COREUTILS
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
