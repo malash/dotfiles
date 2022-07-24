@@ -1,11 +1,23 @@
+# Add brew x86_64 environment variables
 BREW_PREFIX=/usr/local
 BREW_PREFIX_COREUTILS=/usr/local/opt/coreutils
+if [ `uname` == "Darwin" ] && [ -d $BREW_PREFIX_COREUTILS/libexec/gnubin ]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+fi;
+unset BREW_PREFIX
+unset BREW_PREFIX_COREUTILS
+
+# Add brew arm64 environment variables
+BREW_PREFIX=/opt/homebrew
+BREW_PREFIX_COREUTILS=/opt/homebrew/opt/coreutils
+if [ `uname` == "Darwin" ] && [ -d $BREW_PREFIX_COREUTILS/libexec/gnubin ]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+fi;
+unset BREW_PREFIX
+unset BREW_PREFIX_COREUTILS
 
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
-if [ `uname` == "Darwin" ] && [ -d $BREW_PREFIX_COREUTILS/libexec/gnubin ]; then
-    export PATH="$BREW_PREFIX_COREUTILS/libexec/gnubin:$PATH";
-fi;
 
 # history related tuning
 export HISTTIMEFORMAT="%F %T "
@@ -65,7 +77,3 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # git completion
 [ -r "$HOME/.git-completion.bash" ] && source ~/.git-completion.bash;
 
-unset BREW_PREFIX
-unset BREW_PREFIX_COREUTILS
-eval "$(/opt/homebrew/bin/brew shellenv)"
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
