@@ -1,20 +1,18 @@
-# Add brew x86_64 environment variables
-BREW_PREFIX=/usr/local
-BREW_PREFIX_COREUTILS=/usr/local/opt/coreutils
-if [ `uname` == "Darwin" ] && [ -d $BREW_PREFIX_COREUTILS/libexec/gnubin ]; then
-	eval "$(/opt/homebrew/bin/brew shellenv)"
+# Add brew environment variables
+if [ `uname` == "Darwin" ]; then
+	if [ `arch` == "arm64" ]; then
+		BREW_PREFIX=/opt/homebrew
+		BREW_PREFIX_COREUTILS=/opt/homebrew/opt/coreutils
+	else
+		BREW_PREFIX=/usr/local
+		BREW_PREFIX_COREUTILS=/usr/local/opt/coreutils
+	fi;
+	if [ -d $BREW_PREFIX_COREUTILS/libexec/gnubin ]; then
+		eval "$($BREW_PREFIX/bin/brew shellenv)"
+	fi;
+	unset BREW_PREFIX
+	unset BREW_PREFIX_COREUTILS
 fi;
-unset BREW_PREFIX
-unset BREW_PREFIX_COREUTILS
-
-# Add brew arm64 environment variables
-BREW_PREFIX=/opt/homebrew
-BREW_PREFIX_COREUTILS=/opt/homebrew/opt/coreutils
-if [ `uname` == "Darwin" ] && [ -d $BREW_PREFIX_COREUTILS/libexec/gnubin ]; then
-	eval "$(/opt/homebrew/bin/brew shellenv)"
-fi;
-unset BREW_PREFIX
-unset BREW_PREFIX_COREUTILS
 
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
