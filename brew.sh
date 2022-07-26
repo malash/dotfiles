@@ -46,9 +46,6 @@ fi;
 # Install `wget` with IRI support.
 brew install wget --with-iri
 
-# Install proxychains4
-brew install proxychains-ng
-
 # Install GnuPG to enable PGP-signing commits.
 brew install gnupg
 
@@ -115,6 +112,11 @@ brew install htop
 brew install telnet
 brew install ripgrep
 brew install tig
+
+# Install customized packages
+brew install proxychains-ng
+brew install fd
+brew install nload
 
 # Remove outdated versions from the cellar.
 brew cleanup
