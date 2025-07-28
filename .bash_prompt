@@ -43,7 +43,7 @@ prompt_git() {
 			s+='!';
 		fi;
 		# Check for untracked files.
-		if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+		if [ -n "$(git status --porcelain --untracked-files=normal | grep '^??')" ]; then
 			s+='?';
 		fi;
 		# Check for stashed files.
