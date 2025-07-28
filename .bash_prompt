@@ -34,18 +34,21 @@ prompt_git() {
 	if grep -q 'chromium/src.git' <<< "${repoUrl}"; then
 		s+='*';
 	else
+		# Get git status information once to avoid multiple scans
+		status=$(git status --porcelain --untracked-files=normal 2>/dev/null)
+
 		# Check for uncommitted changes in the index.
-		if ! $(git diff --quiet --ignore-submodules --cached); then
-			s+='+';
-		fi;
+		if [ -n "$(echo "$status" | grep '^[AMDR].')" ]; then
+			s+='+'
+		fi
 		# Check for unstaged changes.
-		if ! $(git diff-files --quiet --ignore-submodules --); then
-			s+='!';
-		fi;
+		if [ -n "$(echo "$status" | grep '^.[MD]')" ]; then
+			s+='!'
+		fi
 		# Check for untracked files.
-		if [ -n "$(git status --porcelain --untracked-files=normal | grep '^??')" ]; then
-			s+='?';
-		fi;
+		if [ -n "$(echo "$status" | grep '^??')" ]; then
+			s+='?'
+		fi
 		# Check for stashed files.
 		if $(git rev-parse --verify refs/stash &>/dev/null); then
 			s+='$';
