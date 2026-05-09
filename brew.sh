@@ -117,6 +117,7 @@ brew install tig
 brew install proxychains-ng
 brew install fd
 brew install nload
+brew install curl
 
 # Remove outdated versions from the cellar.
 brew cleanup
