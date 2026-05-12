@@ -118,6 +118,7 @@ brew install proxychains-ng
 brew install fd
 brew install nload
 brew install curl
+brew install iproute2mac
 
 # Remove outdated versions from the cellar.
 brew cleanup
