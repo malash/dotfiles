@@ -7,19 +7,6 @@ git submodule init
 git submodule update
 
 function doIt() {
-	rsync --exclude ".git/" \
-    --exclude ".DS_Store" \
-    --exclude ".osx" \
-    --exclude "bootstrap.sh" \
-    --exclude "README.md" \
-    --exclude "LICENSE-MIT.txt" \
-    --exclude "fonts/" \
-    --exclude ".osx" \
-    --exclude "brew.sh" \
-    --exclude "init" \
-    --exclude ".gitmodules" \
-    --exclude "LICENSE-MIT.txt" \
-    -avh --no-perms . ~;
     if [ `uname` == "Darwin" ]; then
         cp fonts/* $HOME/Library/Fonts/;
 		git config --global credential.helper osxkeychain
@@ -40,11 +27,24 @@ function doIt() {
         fi
         if apt-get -v > /dev/null 2>&1; then
             $SUDO apt-get update
-            $SUDO apt-get install -y vim bash-completion mosh tree htop nload proxychains4 locales
+            $SUDO apt-get install -y vim bash-completion mosh tree htop nload proxychains4 locales rsync
             $SUDO sed -i 's/^# *en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
             $SUDO locale-gen en_US.UTF-8
         fi;
     fi;
+	rsync --exclude ".git/" \
+    --exclude ".DS_Store" \
+    --exclude ".osx" \
+    --exclude "bootstrap.sh" \
+    --exclude "README.md" \
+    --exclude "LICENSE-MIT.txt" \
+    --exclude "fonts/" \
+    --exclude ".osx" \
+    --exclude "brew.sh" \
+    --exclude "init" \
+    --exclude ".gitmodules" \
+    --exclude "LICENSE-MIT.txt" \
+    -avh --no-perms . ~;
 	source ~/.bash_profile;
 }
 
