@@ -39,8 +39,10 @@ function doIt() {
             SUDO=''
         fi
         if apt-get -v > /dev/null 2>&1; then
-            $SUDO apt-get update;
-            $SUDO apt-get install -y vim bash-completion mosh tree proxychains;
+            $SUDO apt-get update
+            $SUDO apt-get install -y vim bash-completion mosh tree htop nload proxychains4 locales
+            $SUDO sed -i 's/^# *en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+            $SUDO locale-gen en_US.UTF-8
         fi;
     fi;
 	source ~/.bash_profile;
